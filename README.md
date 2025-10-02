@@ -1,73 +1,89 @@
-# Welcome to your Lovable project
+# Student Portal - Sistema de Gestão de Perfil de Aluno
 
-## Project info
+Portal moderno e seguro para gestão individual de perfil acadêmico. Cada aluno pode se cadastrar, fazer login e gerenciar suas próprias informações.
 
-**URL**: https://lovable.dev/projects/96359012-5531-4315-849b-f64a8a84b062
+## 🚀 Funcionalidades
 
-## How can I edit this code?
+- ✅ **Autenticação Completa**: Cadastro e login com email/senha
+- ✅ **Gestão de Perfil**: Visualização e edição de informações pessoais
+- ✅ **Segurança**: Row Level Security (RLS) no Supabase
+- ✅ **UI Moderna**: Interface responsiva com Tailwind CSS
+- ✅ **Feedback Visual**: Notificações toast para ações do usuário
 
-There are several ways of editing your application.
+## 🛠️ Tecnologias
 
-**Use Lovable**
+- **Frontend**: React 18 + TypeScript + Vite
+- **Estilização**: Tailwind CSS + shadcn/ui
+- **Backend**: Supabase (PostgreSQL + Auth)
+- **Gerenciamento de Estado**: React Context API
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/96359012-5531-4315-849b-f64a8a84b062) and start prompting.
+## 📋 Pré-requisitos
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js 18+
+- Conta no Supabase (gratuita)
 
-**Use your preferred IDE**
+## ⚙️ Configuração
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Siga o guia completo em **[SETUP.md](./SETUP.md)** para instruções detalhadas.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Resumo Rápido:
 
-Follow these steps:
+1. **Clone e instale dependências**
+   ```bash
+   npm install
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Configure o Supabase**
+   - Crie um projeto no [Supabase](https://supabase.com)
+   - Execute o script `supabase-setup.sql` no SQL Editor
+   - Copie as credenciais (URL e anon key)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Configure variáveis de ambiente**
+   ```bash
+   cp .env.local.example .env.local
+   # Edite .env.local com suas credenciais
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Inicie o servidor**
+   ```bash
+   npm run dev
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── Navbar.tsx
+│   ├── ProfileCard.tsx
+│   └── EditProfileDialog.tsx
+├── contexts/           # Contextos React
+│   └── AuthContext.tsx
+├── pages/              # Páginas da aplicação
+│   ├── AuthPage.tsx    # Login/Cadastro
+│   └── Dashboard.tsx   # Dashboard do aluno
+├── types/              # Tipos TypeScript
+│   └── student.ts
+└── lib/                # Configurações
+    └── supabase.ts
 ```
 
-**Edit a file directly in GitHub**
+## 🔒 Segurança
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+O projeto implementa **Row Level Security (RLS)** no Supabase, garantindo que:
+- Cada aluno acessa apenas seu próprio perfil
+- Políticas impedem acesso não autorizado
+- Senhas são gerenciadas pelo Supabase Auth
 
-**Use GitHub Codespaces**
+## 🎨 Design
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Paleta**: Gradiente azul → roxo
+- **Tipografia**: Inter
+- **Componentes**: shadcn/ui customizados
+- **Efeitos**: Glassmorphism e sombras suaves
 
-## What technologies are used for this project?
+## 📚 Documentação Adicional
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/96359012-5531-4315-849b-f64a8a84b062) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- [SETUP.md](./SETUP.md) - Guia completo de configuração
+- [supabase-setup.sql](./supabase-setup.sql) - Script SQL para o banco
+- [.env.local.example](./.env.local.example) - Exemplo de variáveis de ambiente
